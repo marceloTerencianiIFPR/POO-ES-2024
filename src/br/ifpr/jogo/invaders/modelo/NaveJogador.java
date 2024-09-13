@@ -1,6 +1,6 @@
 package br.ifpr.jogo.invaders.modelo;
 
-import br.ifpr.jogo.invaders.logica.LogicaCriacao;
+import br.ifpr.jogo.ivanders.modelo.logica.LogicaCriacao;
 
 public class NaveJogador extends Entidade {
     private int pontuacao;

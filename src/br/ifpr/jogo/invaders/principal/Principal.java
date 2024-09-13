@@ -2,10 +2,11 @@ package br.ifpr.jogo.invaders.principal;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import br.ifpr.jogo.invaders.logica.LogicaCriacao;
+
 import br.ifpr.jogo.invaders.modelo.Entidade;
 import br.ifpr.jogo.invaders.modelo.NaveJogador;
 import br.ifpr.jogo.invaders.modelo.Projetil;
+import br.ifpr.jogo.ivanders.modelo.logica.LogicaCriacao;
 
 public class Principal {
     public static void main(String[] args) {

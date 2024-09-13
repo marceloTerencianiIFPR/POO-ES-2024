@@ -1,11 +1,14 @@
 package br.ifpr.turma;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class App {
-    static Turma[] turmas = new Turma[10];
-    static int quantidadeTurma = 0;
+import br.ifpr.turma.controle.TurmaControle;
+import br.ifpr.turma.modelo.diagrama.Turma;
+
+public class Visao {
     static int quantidadeEstudantes = 0;
+    static TurmaControle turmaControle = new TurmaControle();
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
@@ -47,10 +50,11 @@ public class App {
     }
 
     public static void gerarRelatorio() {
-        for (int i = 0; i < quantidadeTurma; i++) {
-            System.out.println("Nome turma: " + turmas[i].nome);
-            System.out.println("Numero minimo: " + turmas[i].numeroMinimo);
-            System.out.println("Ano de ingresso: " + turmas[i].anoIngresso);
+        ArrayList <Turma> turmas = turmaControle.listarTurmas();
+        for (Turma turma : turmas) {
+            System.out.println("Nome da turma: " + turma.getNome());
+            System.out.println("Numero minimo de alunos: " + turma.getNumeroMinimo());
+            System.out.println("Ano de ingresso: " + turma.getAnoIngresso());
         }
     }
 
@@ -58,13 +62,18 @@ public class App {
         scanner.nextLine();// apaga o enter (\n)
         Turma turma = new Turma();
         System.out.println("Digite o nome da turma: ");
-        turma.nome = scanner.nextLine();
+        
+        turma.setNome(scanner.nextLine());
+
         System.out.println("Digite a numero minimo de alunos: ");
-        turma.numeroMinimo = scanner.nextInt();
+
+        int numeroMinimo = scanner.nextInt();
+        turma.setNumeroMinimo(numeroMinimo);
+
         System.out.println("Digite o ano de ingresso: ");
-        turma.anoIngresso = scanner.nextInt();
-        turmas[quantidadeTurma] = turma;
-        quantidadeTurma++;
+        turma.setAnoIngresso(scanner.nextInt());
+
+        turmaControle.cadastrarTurma(turma);
     }
 
     public static void exibirMenu() {

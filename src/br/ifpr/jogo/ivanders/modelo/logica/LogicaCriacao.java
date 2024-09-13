@@ -1,4 +1,4 @@
-package br.ifpr.jogo.invaders.logica;
+package br.ifpr.jogo.ivanders.modelo.logica;
 
 import br.ifpr.jogo.invaders.modelo.Entidade;
 import br.ifpr.jogo.invaders.modelo.NaveJogador;
